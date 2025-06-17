@@ -1,0 +1,93 @@
+﻿<!-- Declaração do tipo de documento HTML -->
+   <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Configuração de codificação de caracteres e viewport -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>F1 2025 - Equipes e Pilotos</title>
+
+  <!-- Link para o arquivo CSS externo -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Título principal da página -->
+  <h1>Fórmula 1 - Temporada 2025</h1>
+    <!-- Botões para interagir com a página -->
+  <div class="button-container">
+    <!-- Botão para alternar a exibição de equipes e pilotos -->
+    <button class="btn" id="toggle-btn" onclick="UIManager.toggleEquipes()">Ver Equipes e Pilotos</button>
+    <!-- Botão para abrir um link externo -->
+    <button class="btn" onclick="window.open('https://band.uol.com.br/esportes/automobilismo/formula-1', '_blank')">Onde Assistir</button>
+    <!-- Botão para acessar área de login -->
+    <button class="btn" onclick="UIManager.toggleLoginForm()">Área de Login</button>
+    <!-- Botão para ver usuários cadastrados -->
+    <button class="btn" onclick="UIManager.toggleUsersList()">Ver Usuários</button>
+  </div>
+  
+  <!-- Contêiner para exibir as equipes -->
+  <div id="teams-container"></div>
+ 
+  <!-- Sobreposição e contêiner para exibir detalhes dos pilotos -->
+  <div id="overlay" onclick="UIManager.fecharDetalhes()"></div>
+  <div id="driver-info"></div>
+  
+  <!-- Formulário de Login -->
+  <div class="form-container" id="loginFormContainer" style="display: none;">
+    <div class="form-header">
+      <h2 class="section-title">Faça seu Cadastro</h2>
+      <button class="close-btn" onclick="UIManager.toggleLoginForm()">×</button>
+    </div>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="username">Login:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="name">Nome Completo:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="favoriteTeam">Equipe Favorita:</label>
+        <select id="favoriteTeam" name="favoriteTeam" required>
+          <option value="">Selecione uma equipe</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="favoriteDriver">Piloto Favorito:</label>
+        <select id="favoriteDriver" name="favoriteDriver" required>
+          <option value="">Selecione um piloto</option>
+        </select>
+      </div>
+      
+      <button type="submit" class="btn">Cadastrar</button>
+    </form>
+  </div>
+
+  <!-- Lista de Usuários -->
+  <div class="users-section" id="usersSection" style="display: none;">
+    <div class="form-header">
+      <h2 class="section-title">Usuários Cadastrados</h2>
+      <button class="close-btn" onclick="UIManager.toggleUsersList()">×</button>
+    </div>
+    <div id="users-list"></div>
+  </div>
+
+  <h2 class="section-title">Calendário de Corridas 2025</h2>
+      <!-- Contêiner para exibir as corridas -->
+      <div id="races-container">
+      </div>
+      
+    <link rel="icon" href="f1.ico" type="image/x-icon">
+
+  <script src="scripts.js" defer></script>
+</body>
+</html>
